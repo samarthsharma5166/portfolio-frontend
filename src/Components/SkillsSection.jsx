@@ -42,7 +42,7 @@ const SkillsSection = () => {
     setLoading(true);
     const res = await axios.get('https://protfolio-api-czji.onrender.com/api/v1/user/getSkills');
     setData(res.data.skill);
-    setLoading(true);         
+    setLoading(false);         
   }
   useEffect(()=>{
     getSkills()   
