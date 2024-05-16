@@ -20,13 +20,13 @@ const AdminLogin = () => {
         dispatch(login());
         navigate("/admin");
       } else {
-        alert(res.data)
+        alert(res.data.message)
         // Handle unsuccessful login here
         setLoading(false); // Turn off loading in case of unsuccessful login
         console.log("Login failed");
       }
     } catch (error) {
-      alert(res.data)
+      
       setLoading(false); // Turn off loading in case of error
       console.log(error);
     }
