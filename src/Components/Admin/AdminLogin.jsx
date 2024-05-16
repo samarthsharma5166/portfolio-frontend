@@ -26,6 +26,7 @@ const AdminLogin = () => {
         console.log("Login failed");
       }
     } catch (error) {
+      alert(res.data)
       setLoading(false); // Turn off loading in case of error
       console.log(error);
     }
