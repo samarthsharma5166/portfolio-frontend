@@ -4,6 +4,7 @@ axios.defaults.withCredentials = true;
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/slices/authSlice.js'
 import { useNavigate } from 'react-router-dom';
+import { data } from 'autoprefixer';
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +20,7 @@ const AdminLogin = () => {
         dispatch(login());
         navigate("/admin");
       } else {
+        alert(res.data)
         // Handle unsuccessful login here
         setLoading(false); // Turn off loading in case of unsuccessful login
         console.log("Login failed");
