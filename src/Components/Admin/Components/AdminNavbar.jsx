@@ -16,7 +16,7 @@ const AdminNavbar = () => {
     const res = await axios.get("https://protfolio-api-czji.onrender.com/api/v1/user/logout",{
       withCredentials:true
     });
-    dispatch(logout);
+    dispatch(logout());
     navigate('/login')
   }
   return (
