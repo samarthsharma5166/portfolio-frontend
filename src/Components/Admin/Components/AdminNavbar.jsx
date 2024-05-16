@@ -6,6 +6,7 @@ import { toggle } from '../../../redux/slices/navSlice';
 import { setPage } from '../../../redux/slices/pageSlice';
 import { logout } from '../../../redux/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { createLogger } from 'vite';
 const AdminNavbar = () => {
   const toggleNav = useSelector((state)=>state.nav.toggleNav);
   const page = useSelector((state)=>state.page.page);
@@ -13,11 +14,15 @@ const AdminNavbar = () => {
   
   const navigate = useNavigate();
   const handelLogout=async()=>{
-    const res = await axios.get("https://protfolio-api-czji.onrender.com/api/v1/user/logout",{
-      withCredentials:true
-    });
-    dispatch(logout());
-    navigate('/login')
+    try {
+      const res = await axios.get("https://protfolio-api-czji.onrender.com/api/v1/user/logout",{
+        withCredentials:true
+      });
+      dispatch(logout());
+      navigate('/login')
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <nav className={`bg-white bg-opacity-5 backdrop-blur-xl text-white w-full z-10 rounded-xl lg:rounded-none fixed lg:static h-screen lg:h-fit flex flex-col lg:flex-row justify-evenly items-center lg:justify-between border border-none lg:border-gray-500 py-10 lg:py-3 lg:px-2 lg:translate-x-0 transition-all delay-100 ease-in-out ${toggleNav?"translate-x-0":"-translate-x-full"}`}>

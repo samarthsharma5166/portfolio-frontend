@@ -39,10 +39,15 @@ const SkillsSection = () => {
   const[data,setData] = useState([]);
   const[loading,setLoading] = useState(false);
   const getSkills=async()=>{
-    setLoading(true);
-    const res = await axios.get('https://protfolio-api-czji.onrender.com/api/v1/user/getSkills');
-    setData(res.data.skill);
-    setLoading(false);         
+    try {
+      setLoading(true);
+      const res = await axios.get('https://protfolio-api-czji.onrender.com/api/v1/user/getSkills');
+      setData(res.data.skill);
+      setLoading(false);  
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }       
   }
   useEffect(()=>{
     getSkills()   

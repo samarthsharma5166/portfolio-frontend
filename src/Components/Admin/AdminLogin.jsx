@@ -12,12 +12,17 @@ const AdminLogin = () => {
   const navigate = useNavigate();
   const loginuser=async(e)=>{
     e.preventDefault();
-    setLoading(true);
+    try {
+      setLoading(true);
     const res = await axios.post("https://protfolio-api-czji.onrender.com/api/v1/user/login",{email,password});
     setLoading(false);
     if(res.data.success===true){
       dispatch(login());
       navigate("/admin")
+    }
+    } catch (error) {
+      setLoading(false);
+      console.log(error)
     }
   }
   const checkAuth =async()=>{

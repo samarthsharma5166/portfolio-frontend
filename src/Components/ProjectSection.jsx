@@ -14,11 +14,16 @@ const ProjectSection = () => {
     scrollRef.current.scrollLeft -= 500;
   }
   const getproject = async()=>{
-    setLoading(true);
-    const res = await axios.get('https://protfolio-api-czji.onrender.com/api/v1/user/project');
-    setLoading(false);
-    setProjects(res.data.projects);
-    
+    try {
+      setLoading(true);
+      const res = await axios.get('https://protfolio-api-czji.onrender.com/api/v1/user/project');
+      setLoading(false);
+      setProjects(res.data.projects);
+      
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   }
   useEffect(()=>{
     getproject();
