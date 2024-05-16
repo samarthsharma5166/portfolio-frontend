@@ -10,13 +10,14 @@ const ContactSection = () => {
     message:""
   });
   const submitMessage=async(e)=>{
-    e.preventDefault();
-    const res = await axios.post('https://protfolio-api-czji.onrender.com/api/v1/user/contact',fromdata);
     setFormData({
       name:"",
       email:"",
       message:""
     });
+    e.preventDefault();
+    const res = await axios.post('https://protfolio-api-czji.onrender.com/api/v1/user/contact',fromdata);
+    
   }
   return (
     <div data-aos="fade-left" className='flex flex-col lg:flex-row lg:items-center mb-20 lg:mb:36 '>
