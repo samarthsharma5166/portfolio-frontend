@@ -1,5 +1,4 @@
 import React from 'react'
-
 const SkillsCard = ({skill,value,key}) => {
   return (
     <div className='flex justify-between items-center mt-5 backdrop-blur-2xl shadow-xl p-3 border-2 rounded-lg border-gray-400 mr-2' key={key}>

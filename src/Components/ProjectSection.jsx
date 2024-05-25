@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import ProjectCard from './ProjectCard'
-import {HiArrowLeft,HiArrowRight} from 'react-icons/hi'
-import { useRef } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState, useRef } from 'react';
+import ProjectCard from './ProjectCard';
+import {HiArrowLeft,HiArrowRight} from 'react-icons/hi';
+import axios from 'axios';
 const ProjectSection = () => {
   const[projects,setProjects] = useState([]);
   const[loading,setLoading] = useState(false);
@@ -30,6 +29,7 @@ const ProjectSection = () => {
   },[])
   return (
     <div>
+      <h1 className='text-5xl lg:text-7xl gradient-text mb-10'>My Projects</h1>
       {
         loading?(
           <div role="status">
@@ -41,7 +41,7 @@ const ProjectSection = () => {
         </div>
         ):(
           <div data-aos="fade-down" className='mb-20 lg:mb-36'>
-      <h1 className='text-5xl lg:text-7xl gradient-text mb-10'>My Projects</h1>
+      
       <div ref={scrollRef} className='flex overflow-x-scroll gap-8 lg:p-3 scroll-hide'>
       {
         projects.map((project)=><ProjectCard name={project.name} image={project.image.secure_url} key={project._id}  desc={project.desc} gitHubUrl={project.gitHubUrl} 

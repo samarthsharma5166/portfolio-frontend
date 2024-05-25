@@ -4,7 +4,6 @@ axios.defaults.withCredentials = true;
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/slices/authSlice.js'
 import { useNavigate } from 'react-router-dom';
-import { data } from 'autoprefixer';
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
